@@ -1,0 +1,30 @@
+<div class="navbar">
+    <h1>Eco</h1>
+    <h1 class="pulse">Pulse</h1>
+    
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Schedule Pickup</a></li>
+            <li><a href="/">View History</a></li>
+        </ul>
+    </nav>
+
+    <div class="dropdown-navbar" (mouseenter)="showDropdown()" (mouseleave)="hideDropdown()">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+ 
+        <div class="dropdown-content" *ngIf="isDropdownVisible">
+            <nav>
+                <ul>
+                    <li><a href="/">Profile</a></li>
+                    <li><a href="/">Report Issue</a></li>
+                    <li><a href="/">Admin Dashboard</a></li>
+                    <li><a href="/">Log In</a></li>
+                    <li><a href="/">Log Out</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

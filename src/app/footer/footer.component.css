@@ -1,0 +1,28 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    border-top: 0.5px solid grey;
+}
+
+nav ul{
+    display: flex;
+    gap: 20px;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+nav li a{
+    text-decoration: none;
+    list-style-type: none;
+    color: #080a0c;
+}
+
+nav li a:hover {
+    color: #415c77;
+}
+
+p {
+    color: grey;
+}

@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'BIT210_Assignment'`, () => {
+  it(`should have as title 'EcoPulse'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('BIT210_Assignment');
+    expect(app.title).toEqual('EcoPulse');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, BIT210_Assignment');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, EcoPulse');
   });
 });

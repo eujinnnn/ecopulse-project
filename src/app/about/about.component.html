@@ -1,0 +1,56 @@
+<div>
+    <div class="container">
+        <h1>Welcome to EcoPulse</h1>
+        <h1>Welcome to EcoPulse</h1>
+        <h3>At EcoPulse, we are committed to a cleaner, greener future by making waste management easier and more efficient.</h3>
+    </div>
+
+    <div class="banner">
+      <div class="globe" [style.transform]="'translate(' + translateX + 'px, ' + translateY + 'px)'">
+            <div class="map"></div>
+        </div>
+    </div>
+
+    <div class="flip-clock">
+        <div class="flip-unit">
+          <div class="flip-card" [class.flip]="hours !== previousHours">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">{{ previousHours }}</div>
+              <div class="flip-card-back">{{ hours }}</div>
+            </div>
+          </div>
+          <span>:</span>
+          <div class="flip-card" [class.flip]="minutes !== previousMinutes">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">{{ previousMinutes }}</div>
+              <div class="flip-card-back">{{ minutes }}</div>
+            </div>
+          </div>
+          <span>:</span>
+          <div class="flip-card" [class.flip]="seconds !== previousSeconds">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">{{ previousSeconds }}</div>
+              <div class="flip-card-back">{{ seconds }}</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip-date">
+          <div class="flip-date-item">
+            <span>{{ day }}</span>
+          </div>
+          <div class="flip-date-item">
+            <span>{{ month }}</span>
+          </div>
+          <div class="flip-date-item">
+            <span>{{ year }}</span>
+          </div>
+        </div>
+    </div>
+
+    <div class="button-section">
+        <button (click)="navigateToSchedule()">Schedule a Pickup</button>
+        <button (click)="navigateToLearn()">Learn More</button>
+        <button (click)="navigateToContact()">Contact Us</button>
+    </div>
+</div>
