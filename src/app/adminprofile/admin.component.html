@@ -1,0 +1,71 @@
+<div class="admin-container">
+  <div class="container">
+    <h1>Admin Dashboard</h1>
+    <h1>Admin Dashboard</h1>
+  </div>
+  
+  <div class="admin">
+    <p>Communities</p>
+    <button (click)="showCommunityModal()">View Communities</button>
+    
+    <!-- Modal for community list -->
+    <div class="modal" [ngClass]="{'show-modal': isModalVisible}">
+      <div class="modal-content">
+        <span class="close-button" (click)="closeCommunityModal()">&times;</span>
+        <section class="community-list">
+          <h5>Communities</h5>
+          <ul>
+            <li *ngFor="let community of communities">
+              <p>{{ community.name }}</p>
+              Pickup Schedule:
+              <ul>
+                <li *ngFor="let schedule of community.pickupSchedule">
+                  Days: {{ schedule.days }}, Times: {{ getTimes(schedule.times) }}
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <!-- Section to add a new community (visible only to super admin) -->
+    <section class="community-section" *ngIf="getCurrentUser()?.role === 'super admin'">
+      <p>Add Community</p>
+      <input type="text" [(ngModel)]="communityName" placeholder="Enter community name" required />
+      
+      <p>Select Pickup Day 1</p>
+      <select [(ngModel)]="selectedDay1">
+        <option value="" disabled>Select a day</option>
+        <option *ngFor="let day of availableDays" [value]="day">{{ day }}</option>
+      </select>
+
+      <p>Select Pickup Day 2</p>
+      <select [(ngModel)]="selectedDay2">
+        <option value="" disabled>Select a day</option>
+        <option *ngFor="let day of availableDays" [value]="day">{{ day }}</option>
+      </select>
+
+      <p>Select Pickup Time</p>
+      <select [(ngModel)]="selectedTime" required>
+        <option value="" disabled>Select a time</option>
+        <option *ngFor="let time of availableTimes" [value]="time">{{ time }}</option>
+      </select>
+
+      <p>Select Pickup Time 2</p>
+      <select [(ngModel)]="selectedTime2" required>
+        <option value="" disabled>Select a time</option>
+        <option *ngFor="let time of availableTimes" [value]="time">{{ time }}</option>
+      </select>
+    
+      <button (click)="addCommunity()">Add Community</button>
+    </section>
+    
+    <!-- Section to broadcast a notification -->
+    <section class="notification-section">
+      <p>Broadcast Notification</p>
+      <input type="text" [(ngModel)]="notification" placeholder="Enter notification message" />
+      <button (click)="broadcastNotification()">Send Notification</button>
+    </section>
+  </div>
+</div>

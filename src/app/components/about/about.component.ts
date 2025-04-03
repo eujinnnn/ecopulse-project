@@ -28,7 +28,7 @@ export class AboutComponent implements OnInit {
     const scrollPosition = window.scrollY;
     
     if (scrollPosition * -2.3 > -this.maxTranslateX) {
-      this.translateX = scrollPosition * -2.3;
+      this.translateX = scrollPosition * -2.1;
       this.translateY = scrollPosition * 0.7;
     } else {
       this.translateX = -this.maxTranslateX;
@@ -78,14 +78,14 @@ export class AboutComponent implements OnInit {
   }
 
   navigateToSchedule() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/schedule']);
   }
 
-  navigateToLearn() {
-    this.router.navigate(['/']);
+  navigateToReport() {
+    this.router.navigate(['/report']);
   }
 
-  navigateToContact() {
-    this.router.navigate(['/']);
+  navigateToGenerate() {
+    this.router.navigate(['/generate']);
   }
 }

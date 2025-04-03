@@ -36,7 +36,8 @@ li a:hover {
     display: flex;
     flex-direction: column;
     margin-top: 33px;
-    margin-left: 645px;
+    margin-left: auto;
+    margin-right: 60px;
     cursor: pointer;
 }
 
@@ -82,6 +83,10 @@ li a:hover {
     gap: 10px;
 }
 
+.dropdown-content li {
+    cursor: pointer;
+}
+
 .dropdown-content a {
     color: #080a0c;
     text-decoration: none;
@@ -89,4 +94,59 @@ li a:hover {
 
 .dropdown-navbar:hover .dropdown-content {
     opacity: 1;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row; /* Stack the navbar vertically */
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    h1 {
+        margin-left: 10px; /* Reduce margin */
+        font-size: 24px; /* Adjust heading size for mobile */
+    }
+
+    ul {
+        flex-direction: row; /* Stack menu items vertically */
+        gap: 30px; /* Smaller gap between menu items */
+        margin-top: 20px; /* Adjust margin for spacing */
+        margin-left: 0; /* Align menu items to the left */
+        padding-left: 20px; /* Add padding */
+    }
+
+    li a {
+        font-size: 16px; /* Adjust link font size */
+    }
+
+    .dropdown-navbar {
+        margin-right: 20px; /* Adjust dropdown position */
+        margin-left: 0; /* Remove left margin */
+        margin-top: 10px; /* Reduce top margin */
+    }
+
+    .bar1, .bar2, .bar3 {
+        width: 25px; /* Increase bar size for better visibility */
+        margin-left: 45px;
+    }
+
+    .dropdown-content {
+        width: 100px; /* Adjust dropdown width */
+        left: auto; /* Remove fixed positioning */
+        right: 20px; /* Position to the right on smaller screens */
+        top: auto; /* Adjust top positioning */
+        opacity: 1; /* Show dropdown for mobile automatically */
+        position: absolute; /* Keep it within the flow of the document */
+    }
+
+    .dropdown-content ul {
+        gap: 5px; /* Smaller gap between dropdown items */
+        margin-left: 0; /* Center dropdown items */
+    }
+
+    .dropdown-content li a {
+        font-size: 14px; /* Adjust font size for dropdown items */
+    }
 }

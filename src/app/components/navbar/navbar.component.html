@@ -1,12 +1,12 @@
 <div class="navbar">
     <h1>Eco</h1>
     <h1 class="pulse">Pulse</h1>
-    
+
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/">Schedule Pickup</a></li>
-            <li><a href="/">View History</a></li>
+            <li *ngIf="getCurrentUser()"><a [routerLink]="['/schedule', getCurrentUser()?.id]">Schedule Pickup</a></li>
+            <li *ngIf="getCurrentUser()"><a [routerLink]="['/user', getCurrentUser()?.id]">View History</a></li>
         </ul>
     </nav>
 
@@ -14,15 +14,18 @@
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
- 
+
         <div class="dropdown-content" *ngIf="isDropdownVisible">
             <nav>
                 <ul>
-                    <li><a href="/">Profile</a></li>
-                    <li><a href="/">Report Issue</a></li>
-                    <li><a href="/">Admin Dashboard</a></li>
-                    <li><a href="/">Log In</a></li>
-                    <li><a href="/">Log Out</a></li>
+                    <li *ngIf="getCurrentUser()"><a [routerLink]="['/user', getCurrentUser()?.id]">Profile</a></li>
+                    <li *ngIf="getCurrentUser()"><a [routerLink]="['/report', getCurrentUser()?.id]">Report Issue</a></li>
+                    <li *ngIf="getCurrentUser()"><a [routerLink]="['/generate', getCurrentUser()?.id]">Generate Report</a></li>
+                    <li *ngIf="getCurrentUser()?.role === 'super admin' || getCurrentUser()?.role === 'Admin'">
+                        <a [routerLink]="['/admin', getCurrentUser()?.community]">Admin Dashboard</a>
+                    </li>                      
+                    <li *ngIf="!getCurrentUser()"><a routerLink="/sign">Log In</a></li>
+                    <li *ngIf="getCurrentUser()"><a (click)="logout()">Log Out</a></li>
                 </ul>
             </nav>
         </div>

@@ -2,7 +2,7 @@
     height: 80vh;
     overflow: hidden;
     position: relative;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .locations-container {
@@ -89,4 +89,38 @@
 
 .container p {
     text-align: justify;
+}
+
+
+/* Mobile view styles */
+@media (max-width: 768px) {
+    .area {
+        height: auto; /* Allow height to adjust based on content */
+        margin-top: 15px; /* Reduce top margin */
+        height: 60vh;
+    }
+
+    .location {
+        font-size: 16px; /* Reduce font size for mobile */
+        animation: bounceIn 3s ease forwards infinite; /* Shorten animation duration */
+    }
+
+    .container {
+        width: 50%; /* Adjust container width */
+        margin-top: -50px;
+    }
+
+    .container p {
+        font-size: 14px; /* Reduce paragraph font size */
+        line-height: 1.5; /* Adjust line height for readability */
+    }
+    
+    .wave-container {
+        height: 150px; /* Reduce wave container height */
+        margin-top: 20px;
+    }
+
+    .wave-clip {
+        height: 80px; /* Reduce wave clip height */
+    }
 }
